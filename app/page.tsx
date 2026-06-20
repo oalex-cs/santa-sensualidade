@@ -1,4 +1,5 @@
 import { ScrollReveal } from "./ScrollReveal";
+import { PhotoCarousel } from "./PhotoCarousel";
 
 const navItems = [
   { label: "Início", href: "#inicio" },
@@ -293,6 +294,15 @@ export default function Home() {
               experimentar texturas, aromas e funcionalidades.
             </p>
           </article>
+        </div>
+      </section>
+
+      <section
+        className="section photo-carousel-section"
+        aria-label="Fotos do evento"
+      >
+        <div className="container photo-carousel-layout">
+          <PhotoCarousel />
         </div>
       </section>
 

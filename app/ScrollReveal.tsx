@@ -9,6 +9,7 @@ const revealSelectors = [
   ".split-grid > *",
   ".program-card",
   ".product-grid > *",
+  ".photo-carousel",
   ".guests-heading",
   ".benefit-card",
   ".mimos-card",
