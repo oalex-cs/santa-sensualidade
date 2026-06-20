@@ -159,6 +159,12 @@ export default function Home() {
 
         <div className="container hero-grid">
           <div className="hero-copy">
+            <img
+              className="hero-mobile-element"
+              src="/hero-mobile-products.png"
+              alt=""
+              aria-hidden="true"
+            />
             <h1>
               Um Chá de Lingerie ou uma Despedida de Solteira diferente de tudo
               o que você já viu
@@ -171,14 +177,6 @@ export default function Home() {
             <a className="button" href="#contato">
               QUERO UM ORÇAMENTO PELO WHATSAPP
             </a>
-          </div>
-
-          <div className="hero-visual">
-            <img
-              className="hero-products-img"
-              src="/hero-products-cutout.png"
-              alt="Lingerie, sapatos e acessórios femininos"
-            />
           </div>
         </div>
       </section>

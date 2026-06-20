@@ -152,22 +152,6 @@ p {
   transform: translateY(1px);
 }
 
-@keyframes heroFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
-}
-
-@keyframes heroFadeIn {
-  from {
-    opacity: 0;
-    transform: translateX(40px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-}
-
 .hero {
   min-height: 720px;
   padding-bottom: 64px;
@@ -195,8 +179,8 @@ p {
 
 .header-brand {
   display: inline-flex;
-  width: 188px;
-  height: 78px;
+  width: 168px;
+  height: 68px;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
@@ -241,27 +225,16 @@ p {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 560px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 560px);
   align-items: center;
   min-height: 560px;
   position: relative;
   z-index: 1;
-  gap: 24px;
+  gap: 0;
 }
 
-.hero-visual {
-  display: grid;
-  place-items: center;
-  position: relative;
-  animation: heroFadeIn 900ms cubic-bezier(0.22, 1, 0.36, 1) 200ms both;
-}
-
-.hero-products-img {
-  width: min(480px, 100%);
-  max-height: 520px;
-  object-fit: contain;
-  filter: drop-shadow(0 32px 48px rgba(107, 26, 53, 0.22));
-  animation: heroFloat 5s ease-in-out infinite;
+.hero-mobile-element {
+  display: none;
 }
 
 .hero-copy p {
@@ -612,14 +585,24 @@ blockquote {
   }
 
   .site-header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 12px;
-    padding: 16px 0 12px;
+    min-height: 66px;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+  }
+
+  .header-brand {
+    width: 156px;
+    height: 56px;
+    justify-content: flex-start;
   }
 
   .header-nav {
-    width: 100%;
+    width: auto;
+    max-width: calc(100% - 172px);
+    justify-content: flex-end;
+    margin-left: auto;
+    gap: 16px;
   }
 
   .hero-grid,
@@ -644,16 +627,6 @@ blockquote {
     min-height: auto;
     padding: 40px 0 48px;
     gap: 32px;
-  }
-
-  .hero-visual {
-    order: -1;
-    justify-self: center;
-  }
-
-  .hero-products-img {
-    width: min(380px, 90vw);
-    max-height: 400px;
   }
 
   .hero-copy {
@@ -735,14 +708,24 @@ blockquote {
     font-size: clamp(20px, 4.5vw, 28px);
   }
 
+  .site-header {
+    min-height: 56px;
+    padding: 6px 0;
+  }
+
   .header-brand {
-    width: 140px;
-    height: 58px;
+    width: 118px;
+    height: 46px;
   }
 
   .header-nav {
-    gap: 14px;
-    font-size: 13px;
+    max-width: none;
+    gap: 12px;
+    font-size: 12px;
+  }
+
+  .header-nav a:not(:first-child):not(:last-child) {
+    display: none;
   }
 
   .hero-copy p {
@@ -751,19 +734,32 @@ blockquote {
 
   .hero {
     background:
-      linear-gradient(180deg, rgba(253, 240, 245, 0.94) 0%, rgba(253, 240, 245, 0.75) 50%, rgba(253, 240, 245, 0.3) 100%),
-      url("/hero-products-bg.png") 66% center / cover no-repeat,
+      radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.86), transparent 19rem),
+      linear-gradient(180deg, rgba(253, 240, 245, 0.96) 0%, rgba(247, 214, 227, 0.78) 100%),
       var(--color-primary-pale);
   }
 
   .hero-grid {
-    padding: 28px 0 40px;
-    gap: 24px;
+    padding: 18px 0 40px;
+    gap: 18px;
   }
 
-  .hero-products-img {
-    width: min(280px, 78vw);
-    max-height: 320px;
+  .hero-copy {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .hero-mobile-element {
+    display: block;
+    width: clamp(260px, 78vw, 372px);
+    max-width: 100%;
+    height: auto;
+    margin: -4px auto 10px;
+    object-fit: contain;
+    filter: drop-shadow(0 16px 22px rgba(107, 26, 53, 0.14));
+    pointer-events: none;
+    user-select: none;
   }
 
   .button {
@@ -855,22 +851,27 @@ blockquote {
   }
 
   .header-brand {
-    width: 120px;
-    height: 50px;
+    width: 108px;
+    height: 42px;
   }
 
   .header-nav {
     gap: 10px;
-    font-size: 12px;
+    font-size: 11px;
   }
 
-  .hero-products-img {
-    width: 75vw;
-    max-height: 260px;
+  .site-header {
+    min-height: 52px;
   }
 
   .hero-grid {
     padding: 20px 0 32px;
+  }
+
+  .hero-mobile-element {
+    width: clamp(232px, 86vw, 318px);
+    margin-top: -2px;
+    margin-bottom: 8px;
   }
 
   .soft-card,
