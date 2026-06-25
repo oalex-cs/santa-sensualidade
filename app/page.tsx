@@ -77,6 +77,97 @@ function LipsMark({ className = "" }: { className?: string }) {
   );
 }
 
+type DecorativeMotifVariant = "conversation" | "products" | "guests";
+
+function DecorativeMotif({
+  variant,
+}: {
+  variant: DecorativeMotifVariant;
+}) {
+  const motif = {
+    conversation: (
+      <>
+        <path d="M50 72c0-25 24-45 54-45h23c31 0 54 20 54 45s-23 45-54 45h-13l-34 26 9-30C66 107 50 91 50 72Z" />
+        <path d="M89 68h57" />
+        <path d="M89 88h37" />
+        <path d="M92 156c9 16 29 27 53 27h17l32 23-8-27c17-8 28-21 28-38 0-13-6-24-16-33" />
+      </>
+    ),
+    products: (
+      <>
+        <path d="M79 77c0-17 13-30 30-30h18c17 0 30 13 30 30v81c0 23-16 40-39 40s-39-17-39-40Z" />
+        <path d="M99 47V28h38v19" />
+        <path d="M91 104h54" />
+        <path d="M177 94c18 22 29 40 29 57 0 19-14 33-33 33s-33-14-33-33c0-17 12-35 37-57Z" />
+        <path d="M48 170c31 21 78 29 129 18" />
+      </>
+    ),
+    guests: (
+      <>
+        <path d="M64 90c0-27 23-48 52-48s52 21 52 48-23 48-52 48a57 57 0 0 1-17-3l-35 20 10-33a45 45 0 0 1-10-32Z" />
+        <path d="M96 85c9-12 26-11 35 0 10-11 27-12 36 0 14 18-12 40-36 57-25-17-49-39-35-57Z" />
+        <path d="M52 170c39 23 97 23 139 0" />
+      </>
+    ),
+  }[variant];
+
+  return (
+    <span className={`section-motif section-motif-${variant}`} aria-hidden="true">
+      <svg viewBox="0 0 240 220">{motif}</svg>
+    </span>
+  );
+}
+
+type TopicSealVariant = "gift" | "clock" | "camera";
+
+function TopicSeal({
+  variant,
+  className = "",
+}: {
+  variant: TopicSealVariant;
+  className?: string;
+}) {
+  const icon = {
+    gift: (
+      <>
+        <path d="M68 94h104v70H68Z" />
+        <path d="M58 74h124v28H58Z" />
+        <path d="M120 74v90" />
+        <path d="M84 74c-13-15-9-32 7-34 15-2 24 13 29 34" />
+        <path d="M156 74c13-15 9-32-7-34-15-2-24 13-29 34" />
+      </>
+    ),
+    clock: (
+      <>
+        <circle cx="120" cy="112" r="50" />
+        <path d="M120 82v34l24 18" />
+        <path d="M94 42 80 28" />
+        <path d="m146 42 14-14" />
+        <path d="M101 178h38" />
+      </>
+    ),
+    camera: (
+      <>
+        <path d="M58 86h33l13-18h32l13 18h33v76H58Z" />
+        <circle cx="120" cy="123" r="27" />
+        <path d="M74 104h18" />
+        <path d="M120 96a27 27 0 0 1 27 27" />
+      </>
+    ),
+  }[variant];
+
+  return (
+    <span className={`topic-seal ${className}`.trim()} aria-hidden="true">
+      <svg viewBox="0 0 240 220">
+        <circle className="topic-seal-ring topic-seal-ring-outer" cx="120" cy="110" r="96" />
+        <circle className="topic-seal-ring topic-seal-ring-mid" cx="120" cy="110" r="75" />
+        <circle className="topic-seal-ring topic-seal-ring-inner" cx="120" cy="110" r="53" />
+        <g className="topic-seal-icon">{icon}</g>
+      </svg>
+    </span>
+  );
+}
+
 type BenefitIconName = (typeof convidadasItems)[number]["icon"];
 
 function BenefitIcon({ name }: { name: BenefitIconName }) {
@@ -239,6 +330,7 @@ export default function Home() {
       </section>
 
       <section className="section dark-section" id="acontece">
+        <DecorativeMotif variant="conversation" />
         <div className="container">
           <div className="section-heading">
             <h2>
@@ -281,6 +373,7 @@ export default function Home() {
       </section>
 
       <section className="section product-section" id="produtos">
+        <DecorativeMotif variant="products" />
         <div className="container product-grid">
           <article className="soft-card">
             <h2>Demonstração de Produtos</h2>
@@ -311,12 +404,14 @@ export default function Home() {
         className="section photo-carousel-section"
         aria-label="Fotos do evento"
       >
+        <TopicSeal variant="camera" className="photo-carousel-seal topic-seal-light" />
         <div className="container photo-carousel-layout">
           <PhotoCarousel />
         </div>
       </section>
 
       <section className="section guests-section" id="convidadas">
+        <DecorativeMotif variant="guests" />
         <div className="container guests-layout">
           <div className="guests-heading">
             <h2>Por que as convidadas amam?</h2>
@@ -336,7 +431,10 @@ export default function Home() {
           </ul>
 
           <aside className="mimos-card">
-            <h2>Mimos especiais</h2>
+            <div className="mimos-card-heading">
+              <TopicSeal variant="gift" className="mimos-seal topic-seal-light" />
+              <h2>Mimos especiais</h2>
+            </div>
             <p>
               Mais do que uma atração para o Chá de Lingerie ou Despedida de
               Solteira , essa experiência, que todas levam para a vida, se
@@ -352,7 +450,10 @@ export default function Home() {
         <div className="container proof-grid">
           <div className="proof-feature">
             <div className="duration-card">
-              <h2>Duração do Evento</h2>
+              <div className="duration-card-heading">
+                <TopicSeal variant="clock" className="duration-seal" />
+                <h2>Duração do Evento</h2>
+              </div>
               <ul>
                 {duracaoItems.map((item) => (
                   <li key={item}>{item}</li>
@@ -385,6 +486,7 @@ export default function Home() {
       </section>
 
       <section className="section cta-section" id="contato">
+        <LipsMark className="section-motif-lips" />
         <div className="container cta-grid">
           <div>
             <h2>
