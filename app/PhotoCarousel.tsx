@@ -7,34 +7,16 @@ import {
   useState,
 } from "react";
 
-import photoOne from "../assets/carrossel/20240303_141503 (1).jpg.jpeg";
-import photoTwo from "../assets/carrossel/20240303_142253 (2).jpg.jpeg";
-import photoThree from "../assets/carrossel/cha__klivia-422.jpg.jpeg";
-import photoFour from "../assets/carrossel/cha__klivia-428.jpg.jpeg";
-import photoFive from "../assets/carrossel/cha__klivia-493.jpg.jpeg";
+const carouselPhotoCount = 12;
 
-const eventPhotos = [
-  {
-    src: photoOne.src,
-    alt: "Sabrina Munno falando ao microfone em um evento sobre sexualidade feminina.",
-  },
-  {
-    src: photoTwo.src,
-    alt: "Sabrina Munno apresentando um produto durante uma palestra.",
-  },
-  {
-    src: photoThree.src,
-    alt: "Sabrina Munno sorrindo enquanto segura um produto rosa durante a demonstração.",
-  },
-  {
-    src: photoFour.src,
-    alt: "Sabrina Munno segurando um acessório rosa durante a explicação para as convidadas.",
-  },
-  {
-    src: photoFive.src,
-    alt: "Sabrina Munno falando com as convidadas durante o Chá de Lingerie.",
-  },
-] as const;
+const eventPhotos = Array.from({ length: carouselPhotoCount }, (_, index) => {
+  const photoNumber = String(index + 1).padStart(2, "0");
+
+  return {
+    src: `/carrossel/carrossel-${photoNumber}.jpg`,
+    alt: `Foto ${index + 1} do evento Santa Sensualidade.`,
+  };
+});
 
 const firstLoopPhoto = eventPhotos.length;
 const initialPhoto = firstLoopPhoto + Math.floor(eventPhotos.length / 2);
