@@ -160,12 +160,6 @@ export default function Home() {
 
         <div className="container hero-grid">
           <div className="hero-copy">
-            <img
-              className="hero-mobile-element"
-              src="/hero-mobile-products.png"
-              alt=""
-              aria-hidden="true"
-            />
             <h1>
               Um Chá de Lingerie ou uma Despedida de Solteira diferente de tudo
               o que você já viu
@@ -179,6 +173,14 @@ export default function Home() {
               QUERO UM ORÇAMENTO PELO WHATSAPP
             </a>
           </div>
+          <div className="hero-visual" aria-hidden="true">
+            <div className="hero-target" />
+            <img
+              className="hero-main-image"
+              src="/hero-logo-vidro.png"
+              alt=""
+            />
+          </div>
         </div>
       </section>
 
@@ -191,13 +193,21 @@ export default function Home() {
             autoconhecimento e prazer de forma leve, divertida e sem
             constrangimentos.
           </p>
-          <div className="soft-card">
+          <div className="intro-side">
+            <figure className="intro-photo-card">
+              <img
+                src="/intro-experience.jpg"
+                alt="Sabrina Munno conduzindo uma dinamica em um Cha de Lingerie"
+              />
+            </figure>
+            <div className="soft-card">
             <p>Aqui, todas se sentem acolhidas.</p>
             <p>
               Nossa linguagem é lúdica, democrática e respeitosa, permitindo
               que mulheres de diferentes gerações participem juntas, se
               identifiquem e aproveitem cada momento.
             </p>
+            </div>
           </div>
         </div>
       </section>
@@ -221,7 +231,7 @@ export default function Home() {
             <div className="bio-photo-halo" aria-hidden="true" />
             <img
               className="bio-photo"
-              src="/sabrina-photo-cutout.png"
+              src="/sabrina-munno-profile.png"
               alt="Sabrina Munno"
             />
           </div>
@@ -340,21 +350,30 @@ export default function Home() {
 
       <section className="section proof-section" id="depoimentos">
         <div className="container proof-grid">
-          <div className="duration-card">
-            <h2>Duração do Evento</h2>
-            <ul>
-              {duracaoItems.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <p>
-              A Santa Sensualidade está a 10 anos no mercado já realizou mais de
-              1500 eventos e mais de 20mil mulheres já assistiram a nossa
-              palestra.
-            </p>
+          <div className="proof-feature">
+            <div className="duration-card">
+              <h2>Duração do Evento</h2>
+              <ul>
+                {duracaoItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p>
+                A Santa Sensualidade está a 10 anos no mercado já realizou mais de
+                1500 eventos e mais de 20mil mulheres já assistiram a nossa
+                palestra.
+              </p>
+            </div>
+
+            <figure className="proof-photo-card">
+              <img
+                src="/duration-event.jpg"
+                alt="Noiva participando do Cha de Lingerie com convidadas"
+              />
+            </figure>
           </div>
 
-          <div>
+          <div className="proof-testimonials">
             <h2>O que dizem as participantes?</h2>
             <div className="testimonial-grid">
               {depoimentos.map((quote) => (
