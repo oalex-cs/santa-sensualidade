@@ -10,7 +10,7 @@ const navItems = [
   { label: "Contato", href: "#contato" },
 ];
 
-const logoSrc = "/logo-header.png";
+const logoSrc = "/logo-marca.png";
 
 const batePapoItems = [
   "✔ Amor-próprio e autoestima",
@@ -264,13 +264,15 @@ export default function Home() {
               QUERO UM ORÇAMENTO PELO WHATSAPP
             </a>
           </div>
-          <div className="hero-visual" aria-hidden="true">
-            <div className="hero-target" />
-            <img
-              className="hero-main-image"
-              src="/hero-logo-vidro.png"
-              alt=""
-            />
+          <div className="hero-visual">
+            <figure className="hero-photo-card">
+              <span className="hero-photo-glow" aria-hidden="true" />
+              <img
+                className="hero-photo"
+                src="/hero-photo.webp"
+                alt="Amigas celebrando juntas em uma Despedida de Solteira da Santa Sensualidade"
+              />
+            </figure>
           </div>
         </div>
       </section>
@@ -287,7 +289,7 @@ export default function Home() {
           <div className="intro-side">
             <figure className="intro-photo-card">
               <img
-                src="/intro-experience.jpg"
+                src="/experiencia-evento.jpg"
                 alt="Sabrina Munno conduzindo uma dinamica em um Cha de Lingerie"
               />
             </figure>
@@ -398,6 +400,13 @@ export default function Home() {
             </p>
           </article>
         </div>
+
+        <figure className="container product-photo-card">
+          <img
+            src="/produtos-demonstracao.jpg"
+            alt="Demonstracao de um produto durante o evento da Santa Sensualidade"
+          />
+        </figure>
       </section>
 
       <section
@@ -413,12 +422,20 @@ export default function Home() {
       <section className="section guests-section" id="convidadas">
         <DecorativeMotif variant="guests" />
         <div className="container guests-layout">
-          <div className="guests-heading">
-            <h2>Por que as convidadas amam?</h2>
-            <p>
-              Com as nossas especialistas, as convidadas encontram um ambiente
-              seguro para:
-            </p>
+          <div className="guests-intro">
+            <div className="guests-heading">
+              <h2>Por que as convidadas amam?</h2>
+              <p>
+                Com as nossas especialistas, as convidadas encontram um ambiente
+                seguro para:
+              </p>
+            </div>
+            <figure className="guests-photo-card">
+              <img
+                src="/convidadas-amam.jpg"
+                alt="Convidadas se divertindo juntas em uma Despedida de Solteira"
+              />
+            </figure>
           </div>
 
           <ul className="benefit-card-grid">
@@ -503,10 +520,6 @@ export default function Home() {
             <a className="button" href="#contato">
               QUERO UM ORÇAMENTO PELO WHATSAPP
             </a>
-            <div className="contact-links">
-              <a href="#contato">Instragram</a>
-              <a href="#contato">Email</a>
-            </div>
           </div>
         </div>
         </section>
@@ -514,6 +527,19 @@ export default function Home() {
 
       <footer className="site-footer">
         <div className="container footer-inner">
+          <div className="footer-brand-block">
+            <a className="footer-brand" href="#inicio">
+              <img className="footer-logo" src={logoSrc} alt="Santa Sensualidade" />
+            </a>
+            <address className="footer-address">
+              <svg className="footer-address-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z" />
+                <circle cx="12" cy="10" r="2.6" />
+              </svg>
+              Av. Angélica, 321 · conj. 46
+            </address>
+          </div>
+
           <nav className="footer-nav" aria-label="Seções do rodapé">
             {navItems.map((item) => (
               <a href={item.href} key={item.href}>
@@ -521,6 +547,32 @@ export default function Home() {
               </a>
             ))}
           </nav>
+
+          <div className="footer-social">
+            <a
+              className="social-button"
+              href="https://www.instagram.com/santasensualidade/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram da Santa Sensualidade"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5.4" />
+                <circle cx="12" cy="12" r="4" />
+                <circle className="social-dot" cx="17.4" cy="6.6" r="1.3" />
+              </svg>
+            </a>
+            <button
+              className="social-button"
+              type="button"
+              aria-label="Email da Santa Sensualidade"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2.6" />
+                <path d="m4 8 8 5 8-5" />
+              </svg>
+            </button>
+          </div>
         </div>
       </footer>
     </>
